@@ -1,4 +1,5 @@
 import BentoLayout from "@/components/BentoGrid";
+import FaqSection from "@/components/FaqSection";
 import { Hero } from "@/components/ui/animated-hero";
 import WhyChooseSection from "@/components/WhyChooseUs";
 
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <BentoLayout />
       <WhyChooseSection />
+      <FaqSection />
     </div>
   );
 }
