@@ -13,10 +13,23 @@ interface BentoCardProps {
 
 const BentoCard = ({ title, description, className = "", children }: BentoCardProps) => {
     return (
-        <div className={`rounded-xl border border-lime-600/20 bg-black/40 backdrop-blur-sm p-6 flex flex-col ${className}`}>
-            <h2 className="text-2xl font-bold text-white mb-2">{title}</h2>
-            <p className="text-gray-300 mb-4">{description}</p>
-            {children}
+        <div
+            className={`relative rounded-2xl border border-lime-300/15 bg-gradient-to-br from-black/60 via-neutral-900/70 to-black/80 shadow-xl shadow-lime-900/10 backdrop-blur-md p-6 flex flex-col overflow-hidden group transition-shadow duration-300 hover:shadow-2xl ${className}`}
+        >
+            {/* Gradient overlay */}
+            <div
+                className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{
+                    background: "linear-gradient(0deg, #ff6a00 0%, #ee0979 100%)",
+                    zIndex: 0,
+                }}
+            />
+            {/* Card content */}
+            <div className="relative z-10">
+                <h2 className="text-2xl font-bold text-white mb-2">{title}</h2>
+                <p className="text-gray-300 mb-4">{description}</p>
+                {children}
+            </div>
         </div>
     );
 };

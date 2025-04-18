@@ -27,7 +27,7 @@ const WhyChooseSection = () => {
     ];
 
     return (
-        <section className="w-full max-w-6xl mx-auto px-4 py-16 bg-gradient-to-b from-black to-neutral-900 dark:from-black dark:to-neutral-900 text-white">
+        <section className="w-full max-w-6xl mx-auto px-4 py-16 text-white">
             <div className="text-center mb-8">
                 <h2 className="text-4xl md:text-5xl font-bold mb-4">
                     Why Choose <span className="font-serif italic text-amber-400">Aligno</span>?

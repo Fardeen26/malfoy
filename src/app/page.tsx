@@ -13,7 +13,10 @@ export default function Home() {
       <WhyChooseSection />
       <FaqSection />
       <PricingSection />
-      <CTASection />
+      <div className="px-4">
+        <CTASection />
+      </div>
+
     </div>
   );
 }

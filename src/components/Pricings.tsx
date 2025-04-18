@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function PricingSection() {
     return (
-        <div className="flex flex-col md:flex-row items-center justify-center gap-5 py-10 bg-gray-900 text-white px-4">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-5 py-10 text-white px-4">
             {/* Starter Plan */}
             <div className="w-full md:w-80 bg-gray-800 rounded-3xl p-6 flex flex-col">
                 <h2 className="text-xl font-bold mb-2">Starter</h2>

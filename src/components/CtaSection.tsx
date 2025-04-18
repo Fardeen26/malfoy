@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export default function CTASection() {
     return (
-        <div className="w-full bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 rounded-3xl px-4 py-20 text-center">
+        <div className="w-full my-10 bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 rounded-3xl px-4 py-20 text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">
                 Ready to get started?
             </h2>
