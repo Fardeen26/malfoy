@@ -41,18 +41,12 @@ export default function ProductDetails() {
                     />
                 </div>
                 <div className="relative z-10 w-full lg:w-1/2">
-                    <h2 className="text-4xl font-bold text-white mb-4">Cluely</h2>
+                    <h2 className="text-4xl font-bold text-white mb-4">Cohort based pricing</h2>
                     <p className="text-gray-300 mb-6">
-                        We built Cluely&apos;s site from scratch with engaging animation and a visually compelling design.
+                        WDeploy different pricing strategies for different customer segments simultaneously. &quot;Our top 20% of customers generate 65% of our profit but receive the same discounts as one‑time buyers, risking our most valuable relationships.&quot;
                     </p>
                     <div className="flex flex-wrap gap-2 mb-auto">
-                        <Badge variant="outline" className="rounded-full px-4 py-1 text-gray-300 bg-gray-800/60 border-gray-700">SaaS</Badge>
-                        <Badge variant="outline" className="rounded-full px-4 py-1 text-gray-300 bg-gray-800/60 border-gray-700">AI</Badge>
-                    </div>
-                    <div className="mt-16 pt-4">
-                        <p className="text-gray-400 text-sm">
-                            Web Design - Animation
-                        </p>
+                        <Badge variant="outline" className="rounded-full px-4 py-1 text-gray-300 bg-gray-800/60 border-gray-700">Build customer loyalty</Badge>
                     </div>
                 </div>
             </motion.div>
@@ -73,19 +67,12 @@ export default function ProductDetails() {
                     />
                 </div>
                 <div className="relative z-10 w-full lg:w-5/12">
-                    <h2 className="text-4xl font-bold text-white mb-4">Helicon</h2>
+                    <h2 className="text-4xl font-bold text-white mb-4">Competitive pricing</h2>
                     <p className="text-gray-300 mb-6">
-                        We designed Helicon&apos;s app and redesigned their site to improve usability and appeal.
+                        Automatically recapture revenue that would otherwise be lost due to pricing misalignment. &quot;When a competitor slashed prices, our conversion rate plummeted to half within 48 hours before we could manually adjust our pricing strategy.&quot; &quot;We noticed competitors increased prices on similar products by 8% last week, but we didn&apos;t adjust our premium line, potentially leaving $45K in monthly revenue on the table.&quot;
                     </p>
                     <div className="flex flex-wrap gap-2 mb-auto">
-                        <Badge variant="outline" className="rounded-full px-4 py-1 text-gray-300 bg-gray-800/60 border-gray-700">Agency</Badge>
-                        <Badge variant="outline" className="rounded-full px-4 py-1 text-gray-300 bg-gray-800/60 border-gray-700">App Dev</Badge>
-                        <Badge variant="outline" className="rounded-full px-4 py-1 text-gray-300 bg-gray-800/60 border-gray-700">B2B</Badge>
-                    </div>
-                    <div className="mt-16 pt-4">
-                        <p className="text-gray-400 text-sm">
-                            Web Design - Copywriting - App Design
-                        </p>
+                        <Badge variant="outline" className="rounded-full px-4 py-1 text-gray-300 bg-gray-800/60 border-gray-700">Enable dynamic pricing</Badge>
                     </div>
                 </div>
                 <div className="relative z-10 w-full lg:w-7/12 flex items-stretch">
@@ -127,18 +114,12 @@ export default function ProductDetails() {
                     />
                 </div>
                 <div className="relative z-10 w-full lg:w-1/2">
-                    <h2 className="text-4xl font-bold text-white mb-4">Cluely</h2>
+                    <h2 className="text-4xl font-bold text-white mb-4">AI‑Led Demand Forecasting</h2>
                     <p className="text-gray-300 mb-6">
-                        We built Cluely&apos;s site from scratch with engaging animation and a visually compelling design.
+                        Predict how price changes will affect sales volume and revenue before they happen. Struggling with Elasticity Uncertainty? &quot;We don&apos;t know if a 10% price increase on our flagship product will reduce volume by 5% or 25%. That uncertainty makes revenue planning nearly impossible.&quot;
                     </p>
                     <div className="flex flex-wrap gap-2 mb-auto">
-                        <Badge variant="outline" className="rounded-full px-4 py-1 text-gray-300 bg-gray-800/60 border-gray-700">SaaS</Badge>
-                        <Badge variant="outline" className="rounded-full px-4 py-1 text-gray-300 bg-gray-800/60 border-gray-700">AI</Badge>
-                    </div>
-                    <div className="mt-16 pt-4">
-                        <p className="text-gray-400 text-sm">
-                            Web Design - Animation
-                        </p>
+                        <Badge variant="outline" className="rounded-full px-4 py-1 text-gray-300 bg-gray-800/60 border-gray-700">Conquer price elasticity</Badge>
                     </div>
                 </div>
             </motion.div>

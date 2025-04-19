@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
+import { realData } from "@/lib/realData";
 
 export default function CTASection() {
     return (
@@ -16,31 +17,19 @@ export default function CTASection() {
                 />
             </div>
             {/* Content */}
-            <div className="relative z-10 w-full max-w-4xl rounded-3xl px-4 py-20 text-center">
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">
-                    Ready to get started?
+            <div className="relative z-10 w-full max-w-3xl rounded-3xl px-4 py-20 text-center">
+                <h2 className="text-4xl md:text-5xl font-medium text-white mb-3">
+                    {realData.additional_sections.title}
                 </h2>
-
-                <p className="text-white/90 mb-10 text-lg">
-                    Book a personalized 1:1 demo with our team or sign up for a free 14-day trial.
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Button
                         variant="secondary"
                         className="bg-white/20 hover:bg-white/30 text-white rounded-full px-8 py-2 h-12"
                     >
-                        Start trial
-                    </Button>
-
-                    <Button
-                        variant="default"
-                        className="bg-white hover:bg-white/90 text-gray-800 rounded-full px-8 py-2 h-12"
-                    >
-                        Book a demo
+                        {realData.additional_sections.cta}
                     </Button>
                 </div>
             </div>
         </div>
     );
-};
+}

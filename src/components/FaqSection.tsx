@@ -10,32 +10,40 @@ interface FaqItem {
     defaultOpen?: boolean;
 }
 
-const FaqSection = () => {
-    const faqItems: FaqItem[] = [
-        {
-            question: "What is Aligno, and how does it help with project management?",
-            answer: "Aligno is a comprehensive project management tool designed to streamline collaboration, task tracking, and team coordination. It helps by centralizing project information, automating workflows, and providing real-time updates to keep everyone aligned."
-        },
-        {
-            question: "Can Aligno be customized for different teams and projects?",
-            answer: "Yes, Aligno offers extensive customization options to adapt to your specific team structure and project requirements. You can create custom workflows, fields, views, and automation rules tailored to your unique needs."
-        },
-        {
-            question: "Does Aligno support real-time collaboration across multiple locations?",
-            answer: "Absolutely! Aligno allows teams to collaborate in real-time, regardless of location, making it ideal for remote and global teams. You can track updates instantly, communicate with team members, and stay on top of project changes as they happen.",
-            defaultOpen: true
-        },
-        {
-            question: "What features does Aligno offer for managing sprints?",
-            answer: "Aligno provides comprehensive sprint management tools including sprint planning, backlog management, burndown charts, capacity planning, and retrospective tools to help agile teams deliver consistently."
-        },
-        {
-            question: "How does Aligno help with tracking project performance?",
-            answer: "Aligno offers robust analytics and reporting features to monitor key metrics, track progress against goals, identify bottlenecks, and provide actionable insights to improve project performance over time."
-        }
-    ];
+const faqItems: FaqItem[] = [
+    {
+        question: "What is AI‑Powered Pricing Intelligence?",
+        answer: "It's a platform that uses artificial intelligence to track competitors, simulate pricing strategies, predict demand, and automate profitable decisions—all in one place."
+    },
+    {
+        question: "How does competitor price tracking work?",
+        answer: "Our platform monitors competitor prices across multiple channels in real time, providing you with actionable insights and AI-driven recommendations to stay ahead in the market."
+    },
+    {
+        question: "Can I test pricing strategies before going live?",
+        answer: "Yes! You can run advanced pricing simulations in a risk-free sandbox to predict revenue impact and optimize your strategies before making changes public.",
+        defaultOpen: true
+    },
+    {
+        question: "What integrations are available?",
+        answer: "We support seamless integrations with major marketplaces and tools like Amazon, Flipkart, Shopify, and more, so you can automate price updates and workflows easily."
+    },
+    {
+        question: "How does automated dynamic pricing work?",
+        answer: "You can set intelligent pricing rules based on demand, seasonality, and competition. The platform automates price updates through API integrations, saving you time and maximizing profit."
+    },
+    {
+        question: "Is this platform suitable for teams of all sizes?",
+        answer: "Absolutely! Our flexible plans and custom dashboards provide value for individuals, small teams, and large enterprises alike."
+    },
+    {
+        question: "How does AI help predict demand and revenue?",
+        answer: "Our AI models forecast how price changes will affect sales volume and revenue, helping you plan and make data-driven decisions with confidence."
+    },
+];
 
-    const [openItem, setOpenItem] = useState<number | null>(2); // Index 2 is "Does Aligno support real-time collaboration..."
+const FaqSection = () => {
+    const [openItem, setOpenItem] = useState<number | null>(2); // Default open third item
 
     const toggleItem = (index: number) => {
         setOpenItem(openItem === index ? null : index);
@@ -45,11 +53,10 @@ const FaqSection = () => {
         <section className="w-full max-w-6xl mx-auto px-4 py-16 bg-black text-white">
             <div className="text-center mb-12">
                 <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                    How <span className="font-serif italic text-amber-400">Aligno</span> helps you?
+                    Frequently Asked Questions
                 </h2>
                 <p className="text-gray-400 max-w-2xl mx-auto text-center">
-                    Aligno offers ready-made solutions to get you going fast. Easily
-                    customize as your team&apos;s needs expand.
+                    Everything you need to know about our AI-powered pricing platform.
                 </p>
             </div>
 

@@ -45,10 +45,10 @@ export const BentoLayout = () => {
         <div className="w-full max-w-6xl mx-auto px-4 py-12">
             {/* Hero Heading */}
             <div className="text-center mb-12">
-                <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                    <span className="text-white">The Fastest Way to</span>
+                <h1 className="text-5xl md:text-5xl font-semibold mb-6">
+                    <span className="text-white">Monitor and Optimize Pricing</span>
                     <br />
-                    <span className="text-lime-100">Understand Anything</span>
+                    <span className="text-lime-100"> at Any Scale</span>
                 </h1>
             </div>
 

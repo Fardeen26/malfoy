@@ -42,6 +42,21 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --animate-shiny-text: shiny-text 8s infinite;
+
+  @keyframes shiny-text {
+
+    0%,
+    90%,
+    100% {
+      background-position: calc(-100% - var(--shiny-width)) 0;
+    }
+
+    30%,
+    60% {
+      background-position: calc(100% + var(--shiny-width)) 0;
+    }
+  }
 }
 
 :root {
@@ -126,4 +141,74 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+
+/* Add this to your globals.css file */
+
+/* Base dark background */
+:root {
+  --primary-glow-color: 111, 63, 251;
+  /* Purple */
+  --secondary-glow-color: 59, 130, 246;
+  /* Blue */
+  --accent-glow-color: 236, 72, 153;
+  /* Pink */
+}
+
+/* Card glowing effect styles */
+.glow-card {
+  background: linear-gradient(to bottom right, rgba(18, 13, 36, 0.8), rgba(13, 10, 28, 0.9));
+  border: 1px solid rgba(var(--primary-glow-color), 0.15);
+  box-shadow: 0 5px 15px rgba(var(--primary-glow-color), 0.1);
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.glow-card:hover {
+  border-color: rgba(var(--primary-glow-color), 0.3);
+  box-shadow: 0 8px 25px rgba(var(--primary-glow-color), 0.2);
+}
+
+.glow-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 100px;
+  background: radial-gradient(ellipse at center bottom,
+      rgba(var(--primary-glow-color), 0.3) 0%,
+      rgba(var(--primary-glow-color), 0.1) 40%,
+      transparent 80%);
+  opacity: 0;
+  filter: blur(15px);
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.glow-card:hover::after {
+  opacity: 1;
+}
+
+/* For dark gradient sections */
+.gradient-section {
+  background: linear-gradient(to bottom, rgba(18, 13, 36, 0.7), rgba(13, 10, 28, 0.9));
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top right,
+      rgba(var(--secondary-glow-color), 0.2),
+      transparent 70%);
+  opacity: 0.5;
+  pointer-events: none;
 }
