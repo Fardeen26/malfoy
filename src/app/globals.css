@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url('../../Switzer_Complete/Fonts/WEB/css/switzer.css');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -76,6 +77,11 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --font-sans: 'Switzer-Variable', 'Switzer-Regular', Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
 }
 
 .dark {
@@ -116,6 +122,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

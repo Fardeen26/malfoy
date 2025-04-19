@@ -16,14 +16,18 @@ const BentoCard = ({ title, description, className = "", children }: BentoCardPr
         <div
             className={`relative rounded-2xl border border-lime-300/15 bg-gradient-to-br from-black/60 via-neutral-900/70 to-black/80 shadow-xl shadow-lime-900/10 backdrop-blur-md p-6 flex flex-col overflow-hidden group transition-shadow duration-300 hover:shadow-2xl ${className}`}
         >
-            {/* Gradient overlay */}
+            {/* Gradient Glow Overlay (on hover) */}
             <div
-                className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{
-                    background: "linear-gradient(0deg, #ff6a00 0%, #ee0979 100%)",
-                    zIndex: 0,
-                }}
-            />
+                className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"
+            >
+                <div className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[90%] h-32 sm:h-40 md:h-48 lg:h-56 rounded-b-2xl"
+                    style={{
+                        background: "radial-gradient(ellipse at center bottom, #b4ec51 0%, #429321 40%, transparent 80%)",
+                        opacity: 0.45,
+                        filter: "blur(8px)"
+                    }}
+                />
+            </div>
             {/* Card content */}
             <div className="relative z-10">
                 <h2 className="text-2xl font-bold text-white mb-2">{title}</h2>

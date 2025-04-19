@@ -7,7 +7,7 @@ import { MoonIcon } from 'lucide-react';
 export default function Navbar() {
     return (
         <header className='flex w-full justify-center pt-4'>
-            <nav className="flex items-center justify-between px-6 rounded-3xl py-4 bg-white text-black w-[70vw]">
+            <nav className="flex items-center justify-between px-6 rounded-3xl py-2 bg-white text-black w-[70vw]">
                 <div className="flex items-center">
                     <Link href="/">
                         <div className="flex items-center">
