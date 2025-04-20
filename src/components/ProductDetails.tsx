@@ -5,6 +5,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Badge } from './ui/badge';
 import { motion } from 'framer-motion';
+import { CheckCircle } from 'lucide-react';
 
 const cardBase =
     'relative rounded-2xl border border-lime-300/15 bg-gradient-to-br from-black/60 via-neutral-900/70 to-black/80 shadow-xl shadow-lime-900/10 backdrop-blur-md p-6 flex flex-col overflow-hidden group transition-all duration-300';
@@ -15,7 +16,8 @@ const overlayBase =
 
 export default function ProductDetails() {
     return (
-        <div className="w-full max-w-6xl mx-auto py-10 px-4">
+        <div className="w-full max-w-6xl mx-auto py-10 mt-12 px-4">
+            <h2 className='text-center text-4xl md:text-5xl font-medium mb-12'>AI Based <span className='text-lime-100'> Pricing strategy & automation </span> that provides value to your entire team</h2>
             <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -41,12 +43,32 @@ export default function ProductDetails() {
                     />
                 </div>
                 <div className="relative z-10 w-full lg:w-1/2">
-                    <h2 className="text-4xl font-bold text-white mb-4">Cohort based pricing</h2>
-                    <p className="text-gray-300 mb-6">
-                        WDeploy different pricing strategies for different customer segments simultaneously. &quot;Our top 20% of customers generate 65% of our profit but receive the same discounts as one‑time buyers, risking our most valuable relationships.&quot;
+                    <h2 className="text-3xl font-medium text-white mb-4">Competitive Intelligence & Agentic AI Workflows</h2>
+                    <p className="text-gray-300 text-sm text-shadow-amber-600 mb-6">
+                        Outprice competitors with insights and fully automated pricing workflows in real-time.
                     </p>
+                    <ul className="space-y-3 mb-6">
+                        {[
+                            "AI monitors competitors & adjusts prices without manual effort",
+                            "AI tracks prices, stock levels & discounts 24/7 to keep you ahead",
+                            "Marketplace AI optimizes pricing for Amazon, Flipkart & Shopify"
+                        ].map((text, idx) => {
+                            const match = text.match(/^(.*?)( without| to | for |$)/);
+                            const bold = match ? match[1] : text;
+                            const rest = match ? text.slice(bold.length) : '';
+                            return (
+                                <li key={idx} className="flex items-start gap-3">
+                                    <CheckCircle className="mt-0.5 text-lime-400 flex-shrink-0" size={22} />
+                                    <span className="text-sm text-gray-900 dark:text-gray-100">
+                                        <span className="font-semibold text-white dark:text-white">{bold}</span>
+                                        <span className="text-white dark:text-gray-300">{rest}</span>
+                                    </span>
+                                </li>
+                            );
+                        })}
+                    </ul>
                     <div className="flex flex-wrap gap-2 mb-auto">
-                        <Badge variant="outline" className="rounded-full px-4 py-1 text-gray-300 bg-gray-800/60 border-gray-700">Build customer loyalty</Badge>
+                        <Badge variant="outline" className="rounded-full px-4 py-1 text-gray-300 bg-gray-800/60 border-gray-700">REAL-TIME PRICING</Badge>
                     </div>
                 </div>
             </motion.div>
@@ -67,12 +89,31 @@ export default function ProductDetails() {
                     />
                 </div>
                 <div className="relative z-10 w-full lg:w-5/12">
-                    <h2 className="text-4xl font-bold text-white mb-4">Competitive pricing</h2>
-                    <p className="text-gray-300 mb-6">
-                        Automatically recapture revenue that would otherwise be lost due to pricing misalignment. &quot;When a competitor slashed prices, our conversion rate plummeted to half within 48 hours before we could manually adjust our pricing strategy.&quot; &quot;We noticed competitors increased prices on similar products by 8% last week, but we didn&apos;t adjust our premium line, potentially leaving $45K in monthly revenue on the table.&quot;
+                    <h2 className="text-3xl font-medium text-white mb-4">Competitive pricing</h2>
+                    <p className="text-gray-300 text-sm mb-6">
+                        Instantly recover lost revenue from pricing misalignment. &quot;A competitor cut prices and our conversions halved in 48 hours before we could react.&quot; &ldquo;Last week, we missed an 8% price hike by competitors and left $45K in revenue unclaimed.&quot;
                     </p>
+                    <ul className="space-y-3 mb-6">
+                        {[
+                            "AI forecasts needs and proposes ideal rates based on patterns",
+                            "Radically shorten decision cycles by replacing slow, manual pilots"
+                        ].map((text, idx) => {
+                            const match = text.match(/^(.*?)( eliminating| by |$)/);
+                            const bold = match ? match[1] : text;
+                            const rest = match ? text.slice(bold.length) : '';
+                            return (
+                                <li key={idx} className="flex items-start gap-3">
+                                    <CheckCircle className="mt-0.5 text-lime-400 flex-shrink-0" size={22} />
+                                    <span className="text-sm text-white dark:text-white">
+                                        <span className="font-semibold text-white dark:text-white">{bold}</span>
+                                        <span className="text-white dark:text-gray-300">{rest}</span>
+                                    </span>
+                                </li>
+                            );
+                        })}
+                    </ul>
                     <div className="flex flex-wrap gap-2 mb-auto">
-                        <Badge variant="outline" className="rounded-full px-4 py-1 text-gray-300 bg-gray-800/60 border-gray-700">Enable dynamic pricing</Badge>
+                        <Badge variant="outline" className="rounded-full px-4 py-1 text-gray-300 bg-gray-800/60 border-gray-700">SIMULATION SANDBOX</Badge>
                     </div>
                 </div>
                 <div className="relative z-10 w-full lg:w-7/12 flex items-stretch">
@@ -114,12 +155,32 @@ export default function ProductDetails() {
                     />
                 </div>
                 <div className="relative z-10 w-full lg:w-1/2">
-                    <h2 className="text-4xl font-bold text-white mb-4">AI‑Led Demand Forecasting</h2>
-                    <p className="text-gray-300 mb-6">
+                    <h2 className="text-3xl font-medium text-white mb-4">AI‑Led Demand Forecasting</h2>
+                    <p className="text-gray-300 text-sm mb-6">
                         Predict how price changes will affect sales volume and revenue before they happen. Struggling with Elasticity Uncertainty? &quot;We don&apos;t know if a 10% price increase on our flagship product will reduce volume by 5% or 25%. That uncertainty makes revenue planning nearly impossible.&quot;
                     </p>
+                    <ul className="space-y-3 mb-6">
+                        {[
+                            "Automated reports highlight pricing trends and revenue leaks",
+                            "Custom AI alerts predict market shifts before they happen",
+                            "AI flags unauthorized sellers & discounts before they impact revenue"
+                        ].map((text, idx) => {
+                            const match = text.match(/^(.*?)( before| and |$)/);
+                            const bold = match ? match[1] : text;
+                            const rest = match ? text.slice(bold.length) : '';
+                            return (
+                                <li key={idx} className="flex items-start gap-3">
+                                    <CheckCircle className="mt-0.5 text-lime-400 flex-shrink-0" size={22} />
+                                    <span className="text-sm text-white dark:text-white">
+                                        <span className="font-semibold text-white dark:text-white">{bold}</span>
+                                        <span className="text-white dark:text-gray-300">{rest}</span>
+                                    </span>
+                                </li>
+                            );
+                        })}
+                    </ul>
                     <div className="flex flex-wrap gap-2 mb-auto">
-                        <Badge variant="outline" className="rounded-full px-4 py-1 text-gray-300 bg-gray-800/60 border-gray-700">Conquer price elasticity</Badge>
+                        <Badge variant="outline" className="rounded-full px-4 py-1 text-gray-300 bg-gray-800/60 border-gray-700">CUSTOM DASHBOARDS</Badge>
                     </div>
                 </div>
             </motion.div>

@@ -23,6 +23,11 @@ export const realData = {
             description:
                 "Set intelligent pricing rules based on demand, seasonality, competition, and automate price updates seamlessly through API integrations.",
         },
+        {
+            title: "Customizable Dashboards",
+            description:
+                "Create custom dashboards to visualize pricing analytics and key metrics tailored to your business needs.",
+        },
     ],
     scale_section: {
         title: "Monitor and Optimize Pricing at Any Scale",

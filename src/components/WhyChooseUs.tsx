@@ -7,8 +7,8 @@ const WhyChooseSection = () => {
     return (
         <section className="w-full max-w-6xl mx-auto px-4 py-16 text-white">
             <div className="text-center mb-8">
-                <h2 className="text-4xl md:text-5xl font-semibold mb-4">
-                    Why Choose <span className="text-lime-100 italic">{realData.footer.logo_text}</span>?
+                <h2 className="text-4xl md:text-5xl font-medium mb-4">
+                    Why Choose <span className="text-lime-100">{realData.footer.logo_text}</span>?
                 </h2>
                 <p className="text-gray-400 max-w-2xl mx-auto text-center text-sm md:text-base">
                     Discover why our pricing intelligence platform stands out in the market.
@@ -20,7 +20,7 @@ const WhyChooseSection = () => {
                     <div className="flex items-center gap-3 mb-6">
                         <h3 className="text-2xl font-bold text-lime-100">{realData.footer.logo_text}</h3>
                     </div>
-                    <div className="bg-gradient-to-br from-neutral-900 to-neutral-800 border border-white/10 rounded-xl p-6 space-y-3">
+                    <div className="relative rounded-2xl p-6 backdrop-blur-xl border-2 border-lime-400/30 shadow-[0_8px_32px_0_rgba(50,255,150,0.15)] space-y-3">
                         {realData.features.map((feature, index) => (
                             <div key={index} className="flex items-center gap-3">
                                 <span className="text-green-400 flex-shrink-0">✔</span>
@@ -34,7 +34,7 @@ const WhyChooseSection = () => {
                     <div className="flex items-center gap-3 mb-6">
                         <h3 className="text-2xl font-bold text-white">Market Problems</h3>
                     </div>
-                    <div className="bg-gradient-to-br from-neutral-900 to-neutral-800 border border-white/10 rounded-xl p-6 space-y-3">
+                    <div className="relative rounded-2xl p-6 backdrop-blur-xl border-2 border-lime-400/30 shadow-[0_8px_32px_0_rgba(50,255,150,0.15)] space-y-3">
                         <div className="flex items-center gap-3"><span className="text-red-400">✖</span><p className="text-gray-400">Manual price tracking is slow and error-prone</p></div>
                         <div className="flex items-center gap-3"><span className="text-red-400">✖</span><p className="text-gray-400">Competitor moves are missed in real time</p></div>
                         <div className="flex items-center gap-3"><span className="text-red-400">✖</span><p className="text-gray-400">No sandbox to test pricing strategies safely</p></div>

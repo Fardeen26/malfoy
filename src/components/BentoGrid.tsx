@@ -42,19 +42,16 @@ export const BentoLayout = () => {
     const [activeTab, setActiveTab] = useState<'skip' | 'read' | 'deep-dive'>('skip');
 
     return (
-        <div className="w-full max-w-6xl mx-auto px-4 py-12">
-            {/* Hero Heading */}
+        <div className="w-full max-w-6xl mx-auto mt-16 px-4 py-12">
             <div className="text-center mb-12">
-                <h1 className="text-5xl md:text-5xl font-semibold mb-6">
+                <h1 className="text-4xl md:text-5xl font-medium mb-6">
                     <span className="text-white">Monitor and Optimize Pricing</span>
                     <br />
                     <span className="text-lime-100"> at Any Scale</span>
                 </h1>
             </div>
 
-            {/* Bento Grid Layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {/* Skim Smarter */}
                 <BentoCard
                     title="Skim Smarter"
                     description="Quickly see the structure of the page and focus only on what matters most."
