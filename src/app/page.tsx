@@ -30,7 +30,7 @@ export default function Home() {
 
         <PricingCards billingCycle={billingCycle} />
       </div>
-      <div className="px-12 mt-40 mb-16">
+      <div className="px-12 max-sm:px-2 mt-40 max-sm:mt-20 mb-16">
         <CTASection />
       </div>
     </div>
