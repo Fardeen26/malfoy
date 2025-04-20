@@ -7,13 +7,13 @@ import { realData } from "@/lib/realData";
 export default function Navbar() {
     return (
         <header className='flex w-full justify-center pt-4'>
-            <nav className="flex items-center justify-between px-6 rounded-3xl py-2 bg-white text-black w-[70vw]">
+            <nav className="flex items-center justify-between px-6 !text-white rounded-full py-2 w-[70vw] backdrop-blur-md bg-transparent">
                 <div className="flex items-center">
-                    <span className="text-2xl font-bold">
+                    <span className="text-2xl font-bold uppercase tracking-tight">
                         {realData.footer.logo_text}
                     </span>
                 </div>
-                <div className="hidden md:flex items-center space-x-8">
+                <div className="hidden md:flex items-center space-x-16">
                     {realData.navigation.map((item) => (
                         <a key={item} href={`#${item.toLowerCase()}`} className="">
                             {item}

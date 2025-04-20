@@ -17,10 +17,10 @@ const WhyChooseSection = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-4xl mx-auto">
                 {/* Platform Features Column */}
                 <div className="space-y-6">
-                    <div className="flex items-center gap-3 mb-6">
-                        <h3 className="text-2xl font-bold text-lime-100">{realData.footer.logo_text}</h3>
+                    <div className="flex items-center justify-center gap-3 mb-6">
+                        <h3 className="text-2xl font-medium text-center text-lime-100">{realData.footer.logo_text}</h3>
                     </div>
-                    <div className="relative rounded-2xl p-6 backdrop-blur-xl border-2 border-lime-400/30 shadow-[0_8px_32px_0_rgba(50,255,150,0.15)] space-y-3">
+                    <div className="relative rounded-2xl border border-lime-300/15 bg-gradient-to-br from-black/60 via-neutral-900/70 to-black/80 shadow-xl shadow-lime-900/10 backdrop-blur-md p-6 flex flex-col overflow-hidden group transition-shadow duration-300 hover:shadow-2xl space-y-3">
                         {realData.features.map((feature, index) => (
                             <div key={index} className="flex items-center gap-3">
                                 <span className="text-green-400 flex-shrink-0">✔</span>
@@ -31,10 +31,10 @@ const WhyChooseSection = () => {
                 </div>
                 {/* Market Problems Column */}
                 <div className="space-y-6">
-                    <div className="flex items-center gap-3 mb-6">
-                        <h3 className="text-2xl font-bold text-white">Market Problems</h3>
+                    <div className="flex items-center justify-center gap-3 mb-6">
+                        <h3 className="text-2xl font-medium text-center text-white">Market Problems</h3>
                     </div>
-                    <div className="relative rounded-2xl p-6 backdrop-blur-xl border-2 border-lime-400/30 shadow-[0_8px_32px_0_rgba(50,255,150,0.15)] space-y-3">
+                    <div className="relative rounded-2xl border border-lime-300/15 bg-gradient-to-br from-black/60 via-neutral-900/70 to-black/80 shadow-xl shadow-lime-900/10 backdrop-blur-md p-6 flex flex-col overflow-hidden group transition-shadow duration-300 hover:shadow-2xl space-y-3">
                         <div className="flex items-center gap-3"><span className="text-red-400">✖</span><p className="text-gray-400">Manual price tracking is slow and error-prone</p></div>
                         <div className="flex items-center gap-3"><span className="text-red-400">✖</span><p className="text-gray-400">Competitor moves are missed in real time</p></div>
                         <div className="flex items-center gap-3"><span className="text-red-400">✖</span><p className="text-gray-400">No sandbox to test pricing strategies safely</p></div>

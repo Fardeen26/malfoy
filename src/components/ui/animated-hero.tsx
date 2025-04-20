@@ -8,8 +8,17 @@ import { realData } from "@/lib/realData";
 
 function Hero() {
   return (
-    <div className="w-full mt-8">
-      <div className="container mx-auto">
+    <div className="w-full mt-8 px-8 relative">
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none z-0"
+      // style={{
+      //   background:
+      //     "radial-gradient(circle, rgba(180, 236, 81, 0.8) 0%, rgba(66, 147, 33, 0.4) 40%, transparent 70%)",
+      //   filter: "blur(20px)",
+      // }}
+      />
+      <div className="container mx-auto rounded-4xl">
         <div className="flex gap-8 py-12 lg:py-20 items-center justify-center flex-col">
           <div
             className={cn(
