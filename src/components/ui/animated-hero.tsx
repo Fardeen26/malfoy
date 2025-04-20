@@ -12,11 +12,6 @@ function Hero() {
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none z-0"
-      // style={{
-      //   background:
-      //     "radial-gradient(circle, rgba(180, 236, 81, 0.8) 0%, rgba(66, 147, 33, 0.4) 40%, transparent 70%)",
-      //   filter: "blur(20px)",
-      // }}
       />
       <div className="container mx-auto rounded-4xl">
         <div className="flex gap-8 py-12 lg:py-20 items-center justify-center flex-col">
@@ -40,13 +35,50 @@ function Hero() {
           </div>
           <div className="flex flex-row gap-3">
             <Button
-              size="lg"
-              className="gap-4 text-black rounded-full relative overflow-hidden shadow-lg shadow-zinc-900/20 border border-zinc-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/60 before:to-transparent before:opacity-60 before:pointer-events-none"
+              className={cn(
+                "gap-4 text-black rounded-full relative px-8 cursor-pointer overflow-hidden shadow-2xl shadow-zinc-900/40 border border-zinc-200 hover:shadow-2xl hover:-translate-y-1 transition-all duration-200",
+                "bg-white/90 backdrop-blur-[2px]"
+              )}
               variant="outline"
             >
-              <span className="relative z-10 flex items-center">
+              {/* Mirror-like silver shine animation overlay */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-0 z-10"
+              >
+                <span
+                  className="block absolute -left-1/3 -top-1/3 w-2/3 h-[180%] animate-shine"
+                  style={{
+                    background:
+                      "linear-gradient(120deg, rgba(192,192,192,0.0) 0%, rgba(224,224,224,0.7) 40%, rgba(255,255,255,0.95) 50%, rgba(192,192,192,0.0) 60%)",
+                    filter: "blur(2px)",
+                  }}
+                />
+              </span>
+              <span className="relative flex items-center z-20">
                 {realData.hero.cta} <ChevronRightSquareIcon className="w-4 h-4 ml-2" />
               </span>
+              <style jsx global>{`
+                @keyframes shine {
+                  0% {
+                    transform: translateX(-100%) rotate(12deg);
+                    opacity: 0.2;
+                  }
+                  40% {
+                    opacity: 0.7;
+                  }
+                  60% {
+                    opacity: 0.9;
+                  }
+                  100% {
+                    transform: translateX(220%) rotate(12deg);
+                    opacity: 0.2;
+                  }
+                }
+                .animate-shine {
+                  animation: shine 2.2s cubic-bezier(0.4,0,0.2,1) infinite;
+                }
+              `}</style>
             </Button>
           </div>
         </div>

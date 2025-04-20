@@ -8,40 +8,96 @@ interface BentoCardProps {
     description: string;
     className?: string;
     children?: React.ReactNode;
+    gradientPosition?: string;
 }
 
-const BentoCard = ({ title, description, className = "", children }: BentoCardProps) => {
+const BentoCard = ({ title, description, className = "", children, gradientPosition = "center" }: BentoCardProps) => {
     return (
         <div
-            className={`relative rounded-2xl border border-lime-300/15 bg-gradient-to-br from-black/60 via-neutral-900/70 to-black/80 shadow-xl shadow-lime-900/10 backdrop-blur-md p-6 flex flex-col overflow-hidden group transition-shadow duration-300 hover:shadow-2xl ${className}`}
+            className={`
+                relative rounded-2xl border border-lime-300/15 bg-gradient-to-br from-black/60 via-neutral-900/70 to-black/80 
+                shadow-xl shadow-lime-900/10 backdrop-blur-md p-6 flex flex-col overflow-hidden group
+                transition-all duration-300
+                hover:scale-[1.035] hover:-translate-y-1
+                hover:shadow-2xl hover:shadow-lime-300/30
+                ${className}
+            `}
             style={{
-                background:
-                    "radial-gradient(circle, rgba(180, 236, 81, 0.8) 0%, rgba(66, 147, 33, 0.4) 40%, transparent 70%)",
-                // filter: "blur(20px)",
+                cursor: "pointer",
             }}
         >
+            {/* Animated colored shadow and border on hover */}
             <div
-                className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"
-            >
-                <div className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[90%] h-32 sm:h-40 md:h-48 lg:h-56 rounded-b-2xl"
-                    style={{
-                        background: "radial-gradient(ellipse at center bottom, #b4ec51 0%, #429321 40%, transparent 80%)",
-                        opacity: 0.45,
-                        filter: "blur(8px)"
-                    }}
-                />
-            </div>
-            <div className="relative z-10">
+                className={`
+                    pointer-events-none absolute inset-0 z-0
+                    transition-all duration-500
+                    group-hover:opacity-90 group-hover:scale-105
+                    group-hover:shadow-[0_0_40px_10px_rgba(180,236,81,0.25)]
+                    group-hover:border-lime-300/60
+                `}
+                style={{
+                    background: `radial-gradient(circle at ${gradientPosition}, rgba(180,236,81,0.20) 0%, rgba(66,147,33,0.30) 40%, transparent 75%)`,
+                    opacity: 0.7,
+                    borderRadius: "inherit",
+                }}
+            />
+            {/* Extra colored shadow on hover */}
+            <div
+                className={`
+                    pointer-events-none absolute inset-0 z-10
+                    opacity-0 group-hover:opacity-100
+                    transition-opacity duration-300
+                `}
+                style={{
+                    boxShadow: "0 0 32px 0 rgba(180,236,81,0.18), 0 4px 32px 0 rgba(66,147,33,0.10)",
+                    borderRadius: "inherit",
+                }}
+            />
+            {/* Additional shadow effect on hover */}
+            <div
+                className={`
+                    pointer-events-none absolute inset-0 z-20
+                    opacity-0 group-hover:opacity-100
+                    transition-opacity duration-300
+                `}
+                style={{
+                    boxShadow: "0 8px 40px 8px rgba(180,236,81,0.18), 0 2px 24px 0 rgba(66,147,33,0.15)",
+                    borderRadius: "inherit",
+                }}
+            />
+            <div className="relative z-30">
                 <h2 className="text-2xl font-bold text-white mb-2">{title}</h2>
                 <p className="text-gray-300 mb-4">{description}</p>
                 {children}
             </div>
+            {/* Keyframes for shine animation */}
+            <style jsx>{`
+                @keyframes bento-shine {
+                    0% {
+                        transform: translateX(-60%) skewX(-12deg);
+                        opacity: 0.1;
+                    }
+                    40% {
+                        opacity: 0.5;
+                    }
+                    60% {
+                        opacity: 0.7;
+                    }
+                    100% {
+                        transform: translateX(60%) skewX(-12deg);
+                        opacity: 0.1;
+                    }
+                }
+                .group-hover\\:animate-bento-shine:hover {
+                    animation: bento-shine 1.2s cubic-bezier(0.4,0,0.2,1);
+                }
+            `}</style>
         </div>
     );
 };
 
 export const BentoLayout = () => {
-    const [activeTab] = useState<'skip' | 'read' | 'deep-dive'>('skip');
+    const [tab, setTab] = useState<'skip' | 'read' | 'deep-dive'>('skip');
 
     return (
         <div className="w-full max-w-6xl mx-auto mt-16 px-4 py-12">
@@ -58,34 +114,46 @@ export const BentoLayout = () => {
                     title="Competitive Intelligence"
                     description="Track competitor prices across multiple channels in real time and get AI-driven recommendations to stay ahead in the market."
                     className="bg-black/70"
+                    gradientPosition="left top"
                 >
-                    <div className="mt-auto">
-                        <div className="flex gap-4 mt-4">
-                            <button
-                                className={`rounded-full px-4 py-2 text-sm flex items-center ${activeTab === 'skip' ? 'bg-lime-400 text-black' : 'bg-gray-800 text-gray-300'}`}
-                            >
-                                <span className="mr-2 h-3 w-3 rounded-full bg-current"></span>
-                                Track
-                            </button>
-                            <button
-                                className={`rounded-full px-4 py-2 text-sm flex items-center ${activeTab === 'read' ? 'bg-lime-400 text-black' : 'bg-gray-800 text-gray-300'}`}
-                            >
-                                <span className="mr-2 h-3 w-3 rounded-full bg-current"></span>
-                                AI
-                            </button>
-                        </div>
-                        <button
-                            className={`rounded-full px-4 py-2 text-sm flex items-center mt-4 ${activeTab === 'deep-dive' ? 'bg-lime-400 text-black' : 'bg-gray-800 text-gray-300'}`}
-                        >
-                            <span className="mr-2 h-3 w-3 rounded-full bg-current"></span>
-                            Lead
-                        </button>
-                    </div>
+                    {(() => {
+                        return (
+                            <div className="mt-auto">
+                                <div className="flex gap-4 mt-4">
+                                    <button
+                                        className={`rounded-full px-4 py-2 text-sm flex items-center ${tab === 'skip' ? 'bg-lime-400 text-black' : 'bg-black text-gray-300'} cursor-pointer`}
+                                        onClick={() => setTab('skip')}
+                                        type="button"
+                                    >
+                                        <span className="mr-2 h-3 w-3 rounded-full bg-current"></span>
+                                        Track
+                                    </button>
+                                    <button
+                                        className={`rounded-full px-4 py-2 text-sm flex items-center ${tab === 'read' ? 'bg-lime-400 text-black' : 'bg-black text-gray-300'} cursor-pointer`}
+                                        onClick={() => setTab('read')}
+                                        type="button"
+                                    >
+                                        <span className="mr-2 h-3 w-3 rounded-full bg-current"></span>
+                                        AI
+                                    </button>
+                                </div>
+                                <button
+                                    className={`rounded-full px-4 py-2 text-sm flex items-center mt-4 ${tab === 'deep-dive' ? 'bg-lime-400 text-black' : 'bg-black text-gray-300'} cursor-pointer`}
+                                    onClick={() => setTab('deep-dive')}
+                                    type="button"
+                                >
+                                    <span className="mr-2 h-3 w-3 rounded-full bg-current"></span>
+                                    Lead
+                                </button>
+                            </div>
+                        );
+                    })()}
                 </BentoCard>
 
                 <BentoCard
                     title="Pricing Simulations"
                     description="Run advanced pricing simulations in a risk-free sandbox to predict revenue impact and optimize strategies before going live."
+                    gradientPosition="right top"
                 >
                     <div className="bg-black/80 rounded-lg p-4 mt-4 border border-lime-500/20">
                         <div className="flex items-start">
@@ -93,10 +161,10 @@ export const BentoLayout = () => {
                                 <Lightbulb size={20} />
                             </div>
                             <div>
-                                <h3 className="font-semibold text-white text-lg">Sandbox</h3>
-                                <p className="text-gray-300 text-sm mt-1">
-                                    Test risk-free.
-                                </p>
+                                <h3 className="font-semibold text-white text-lg">AI‑Powered Pricing</h3>
+                                <ul className="text-gray-300 text-sm mt-2 list-disc list-inside space-y-1">
+                                    <li>AI forecasts needs and proposes ideal rates based on patterns</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -105,10 +173,11 @@ export const BentoLayout = () => {
                 <BentoCard
                     title="Automated Dynamic Pricing"
                     description="Set intelligent pricing rules based on demand, seasonality, competition, and automate price updates seamlessly through API integrations."
+                    gradientPosition="left bottom"
                 >
                     <div className="flex items-center justify-between bg-black/80 rounded-lg border border-lime-500/20 mt-4 p-3">
                         <div className="text-gray-300">Where can I access this tool?</div>
-                        <button className="bg-lime-400 text-black rounded-full p-2">
+                        <button className="bg-lime-400 text-black rounded-full p-2 cursor-pointer">
                             <ArrowUpRight size={20} />
                         </button>
                     </div>
@@ -118,6 +187,7 @@ export const BentoLayout = () => {
                     title="Easy to Integrate"
                     description="Add two lines of code to your script and automatically start tracking code, hyperparameters, metrics, and more, so you can compare and reproduce training runs."
                     className="col-span-1 md:col-span-1 lg:col-span-2"
+                    gradientPosition="right bottom"
                 >
                     <div className="mt-4">
                         <div className="bg-black/80 rounded-lg p-4 border border-lime-500/20 max-w-md">
@@ -126,10 +196,10 @@ export const BentoLayout = () => {
                                     <span className="font-mono">+</span>
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-white">Cognitive Load</h3>
-                                    <p className="text-gray-300 text-sm mt-1">
-                                        refers to how much your brain is juggling at once while trying to understand somethin
-                                    </p>
+                                    <h3 className="font-semibold text-white">Easy to Integrate</h3>
+                                    <ul className="text-gray-300 text-sm mt-2 list-disc list-inside space-y-1">
+                                        <li>Add two lines of code to your script and start tracking instantly</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -139,6 +209,7 @@ export const BentoLayout = () => {
                 <BentoCard
                     title="Build your own visualizations"
                     description="Create custom dashboards to surface the metrics that matter most for your business."
+                    gradientPosition="center"
                 >
                 </BentoCard>
             </div>

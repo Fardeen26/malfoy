@@ -11,13 +11,13 @@ export default function PricingCards({ billingCycle }: PricingCardsProps) {
     // Pricing data for both cycles
     const pricingData = {
         monthly: {
-            basic: { price: 1999, label: "/monthly" },
-            pro: { price: 9999, label: "/monthly" },
+            basic: { price: 2199, label: "/monthly" },
+            pro: { price: 10999, label: "/monthly" },
             enterprise: { price: "Custom", label: "" },
         },
         yearly: {
-            basic: { price: 19999, label: "/yearly" }, // Example: 19999/year
-            pro: { price: 99999, label: "/yearly" },
+            basic: { price: 1999, label: "/yearly" }, // Example: 19999/year
+            pro: { price: 9999, label: "/yearly" },
             enterprise: { price: "Custom", label: "" },
         },
     };
@@ -61,7 +61,7 @@ export default function PricingCards({ billingCycle }: PricingCardsProps) {
                 </div>
 
                 <div className="mt-auto space-y-4">
-                    <Button className="w-full bg-[#1a1a1a] hover:bg-black text-white">Get Started</Button>
+                    <Button className="w-full bg-[#1a1a1a] hover:bg-black text-white cursor-pointer">Get Started</Button>
                     <div className="text-center">
                         <a href="#" className="text-gray-600 hover:text-gray-900 text-sm">
                             Learn More
@@ -70,7 +70,6 @@ export default function PricingCards({ billingCycle }: PricingCardsProps) {
                 </div>
             </div>
 
-            {/* Pro Plan - Featured */}
             <div className="relative rounded-2xl p-8 shadow-xl border border-gray-700 flex flex-col h-full z-10 transform scale-105 transition-all overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-[#4a4a4a] via-[#3c3c3c] to-[#1a1a1a] z-0"></div>
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(255,255,255,0.15),transparent_70%)] z-0"></div>
@@ -128,9 +127,45 @@ export default function PricingCards({ billingCycle }: PricingCardsProps) {
                 </div>
 
                 <div className="mt-auto relative z-10">
-                    <Button className="w-full bg-white hover:bg-gray-100 text-black relative overflow-hidden group">
-                        <span className="relative z-10">Get Started</span>
-                        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/70 to-transparent -translate-x-full group-hover:animate-shimmer"></span>
+                    <Button className="w-full bg-white cursor-pointer hover:scale-105 transition-all hover:bg-gray-100 text-black relative overflow-hidden group">
+                        {/* Mirror-like silver shine animation overlay */}
+                        <span
+                            aria-hidden
+                            className="pointer-events-none absolute inset-0 z-10"
+                        >
+                            <span
+                                className="block absolute -left-1/3 -top-1/3 w-2/3 h-[180%] animate-shine"
+                                style={{
+                                    background:
+                                        "linear-gradient(120deg, rgba(192,192,192,0.0) 0%, rgba(224,224,224,0.7) 40%, rgba(255,255,255,0.95) 50%, rgba(192,192,192,0.0) 60%)",
+                                    filter: "blur(2px)",
+                                }}
+                            />
+                        </span>
+                        <span className="relative flex items-center z-20">
+                            Get Started
+                        </span>
+                        <style jsx global>{`
+                        @keyframes shine {
+                          0% {
+                            transform: translateX(-100%) rotate(12deg);
+                            opacity: 0.2;
+                          }
+                          40% {
+                            opacity: 0.7;
+                          }
+                          60% {
+                            opacity: 0.9;
+                          }
+                          100% {
+                            transform: translateX(220%) rotate(12deg);
+                            opacity: 0.2;
+                          }
+                        }
+                        .animate-shine {
+                          animation: shine 2.2s cubic-bezier(0.4,0,0.2,1) infinite;
+                        }
+                      `}</style>
                     </Button>
                 </div>
             </div>
@@ -172,7 +207,7 @@ export default function PricingCards({ billingCycle }: PricingCardsProps) {
                 </div>
 
                 <div className="mt-auto space-y-4">
-                    <Button className="w-full bg-[#1a1a1a] hover:bg-black text-white">Get Started</Button>
+                    <Button className="w-full bg-[#1a1a1a] hover:bg-black text-white cursor-pointer">Get Started</Button>
                     <div className="text-center">
                         <a href="#" className="text-gray-600 hover:text-gray-900 text-sm">
                             Learn More

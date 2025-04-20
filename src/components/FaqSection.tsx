@@ -1,7 +1,7 @@
 // components/FaqSection.tsx
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Plus, X } from 'lucide-react';
 
 interface FaqItem {
@@ -44,10 +44,23 @@ const faqItems: FaqItem[] = [
 
 const FaqSection = () => {
     const [openItem, setOpenItem] = useState<number | null>(2); // Default open third item
+    const [animatingIndex, setAnimatingIndex] = useState<number | null>(null);
+
+    const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     const toggleItem = (index: number) => {
+        setAnimatingIndex(index);
         setOpenItem(openItem === index ? null : index);
     };
+
+    useEffect(() => {
+        if (animatingIndex !== null) {
+            const timeout = setTimeout(() => {
+                setAnimatingIndex(null);
+            }, 400); // match transition duration
+            return () => clearTimeout(timeout);
+        }
+    }, [animatingIndex]);
 
     return (
         <section className="w-full max-w-6xl mx-auto px-4 py-16 text-white">
@@ -61,33 +74,51 @@ const FaqSection = () => {
             </div>
 
             <div className="max-w-3xl mx-auto space-y-4">
-                {faqItems.map((item, index) => (
-                    <div
-                        key={index}
-                        className={`rounded-xl overflow-hidden ${openItem === index
-                            ? 'bg-neutral-900 border border-neutral-800'
-                            : 'bg-neutral-900/80 border border-neutral-800/50 hover:border-neutral-800'
-                            }`}
-                    >
-                        <button
-                            onClick={() => toggleItem(index)}
-                            className="w-full flex items-center justify-between p-5 text-left"
-                        >
-                            <span className="text-gray-200 font-medium">{item.question}</span>
-                            {openItem === index ? (
-                                <X className="w-5 h-5 text-gray-400" />
-                            ) : (
-                                <Plus className="w-5 h-5 text-gray-400" />
-                            )}
-                        </button>
+                {faqItems.map((item, index) => {
+                    const isOpen = openItem === index;
+                    return (
+                        <div
+                            key={index}
+                            className={`rounded-xl overflow-hidden transition-colors duration-300 ${isOpen
+                                ? 'bg-neutral-900 border border-neutral-800'
+                                : 'bg-neutral-900/80 border border-neutral-800/50 hover:border-neutral-800'
+                                }`}
 
-                        {openItem === index && (
-                            <div className="p-5 pt-0 text-gray-400">
-                                <p>{item.answer}</p>
+                        >
+                            <button
+                                onClick={() => toggleItem(index)}
+                                className="w-full flex items-center justify-between p-5 text-left cursor-pointer"
+                            >
+                                <span className="text-gray-200 font-medium">{item.question}</span>
+                                {isOpen ? (
+                                    <X className="w-5 h-5 text-gray-400" />
+                                ) : (
+                                    <Plus className="w-5 h-5 text-gray-400" />
+                                )}
+                            </button>
+
+                            <div
+                                ref={el => { contentRefs.current[index] = el; }}
+                                style={{
+                                    maxHeight: isOpen
+                                        ? contentRefs.current[index]?.scrollHeight + 'px'
+                                        : '0px',
+                                    opacity: isOpen ? 1 : 0,
+                                    transition: 'max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s',
+                                    overflow: 'hidden',
+                                }}
+                            >
+                                <div className={`p-5 pt-0 text-gray-400 transition-transform duration-300 ${isOpen ? 'translate-y-0' : '-translate-y-2'}`}
+                                    style={{
+                                        pointerEvents: isOpen ? 'auto' : 'none',
+                                    }}
+                                >
+                                    <p>{item.answer}</p>
+                                </div>
                             </div>
-                        )}
-                    </div>
-                ))}
+                        </div>
+                    );
+                })}
             </div>
         </section>
     );

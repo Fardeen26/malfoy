@@ -13,7 +13,7 @@ export default function PricingToggle({ value, onChange }: PricingToggleProps) {
             <button
                 onClick={() => onChange("monthly")}
                 className={cn(
-                    "px-6 py-2 text-sm font-medium rounded-md transition-colors",
+                    "px-6 py-2 text-sm font-medium rounded-md transition-colors cursor-pointer",
                     value === "monthly" ? "bg-black text-white shadow-sm" : "bg-gray-100 text-gray-700 hover:text-gray-900",
                 )}
             >
@@ -22,7 +22,7 @@ export default function PricingToggle({ value, onChange }: PricingToggleProps) {
             <button
                 onClick={() => onChange("yearly")}
                 className={cn(
-                    "px-6 py-2 text-sm font-medium rounded-md transition-colors",
+                    "px-6 py-2 text-sm font-medium rounded-md transition-colors cursor-pointer",
                     value === "yearly" ? "bg-black text-white shadow-sm" : "bg-gray-100 text-gray-700 hover:text-gray-900",
                 )}
             >

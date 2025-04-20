@@ -7,7 +7,7 @@ import { realData } from "@/lib/realData";
 export default function Navbar() {
     return (
         <header className='flex w-full justify-center pt-4'>
-            <nav className="flex items-center justify-between px-6 !text-white rounded-full py-2 w-[70vw] backdrop-blur-md bg-transparent">
+            <nav className="flex items-center justify-between px-6 rounded-full py-2 w-[75vw]">
                 <div className="flex items-center">
                     <span className="text-2xl font-bold uppercase tracking-tight">
                         {realData.footer.logo_text}
