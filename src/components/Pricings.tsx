@@ -8,7 +8,6 @@ interface PricingCardsProps {
 }
 
 export default function PricingCards({ billingCycle }: PricingCardsProps) {
-    // Pricing data for both cycles
     const pricingData = {
         monthly: {
             basic: { price: 2199, label: "/monthly" },
@@ -16,7 +15,7 @@ export default function PricingCards({ billingCycle }: PricingCardsProps) {
             enterprise: { price: "Custom", label: "" },
         },
         yearly: {
-            basic: { price: 1999, label: "/yearly" }, // Example: 19999/year
+            basic: { price: 1999, label: "/yearly" },
             pro: { price: 9999, label: "/yearly" },
             enterprise: { price: "Custom", label: "" },
         },

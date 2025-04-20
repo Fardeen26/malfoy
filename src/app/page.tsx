@@ -23,7 +23,7 @@ export default function Home() {
       <ProductDetails />
       <FaqSection />
       <div className="w-full max-w-6xl mx-auto space-y-8 mt-8">
-        <h2 className="text-4xl md:text-5xl font-medium text-center">Flexible and <span className="text-lime-100">Transparent Pricing</span> for  <br /> Teams of all sizes</h2>
+        <h2 className="text-4xl md:text-5xl font-medium text-center">Flexible and <span className="text-lime-400">Transparent Pricing</span> for  <br /> Teams of all sizes</h2>
         <div className="flex justify-center mb-12 mt-12">
           <PricingToggle value={billingCycle} onChange={setBillingCycle} />
         </div>

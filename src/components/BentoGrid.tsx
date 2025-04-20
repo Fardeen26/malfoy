@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { ArrowUpRight, Lightbulb } from 'lucide-react';
+import { useTheme } from 'next-themes';
 
 interface BentoCardProps {
     title: string;
@@ -12,65 +13,68 @@ interface BentoCardProps {
 }
 
 const BentoCard = ({ title, description, className = "", children, gradientPosition = "center" }: BentoCardProps) => {
+    const { resolvedTheme } = useTheme();
+    const isDark = resolvedTheme === 'dark';
     return (
         <div
             className={`
-                relative rounded-2xl border border-lime-300/15 bg-gradient-to-br from-black/60 via-neutral-900/70 to-black/80 
-                shadow-xl shadow-lime-900/10 backdrop-blur-md p-6 flex flex-col overflow-hidden group
+                relative rounded-2xl border border-lime-300/15
+                ${isDark ? 'bg-gradient-to-br from-black/60 via-neutral-900/70 to-black/80 shadow-xl shadow-lime-900/10 backdrop-blur-md' : 'relative rounded-2xl border border-lime-300/15 bg-gradient-to-br from-black/60 via-neutral-900/70 to-black/80 shadow-xl shadow-lime-900/10 backdrop-blur-md p-6 flex flex-col overflow-hidden group transition-all duration-300'}
+                p-6 flex flex-col overflow-hidden group
                 transition-all duration-300
                 hover:scale-[1.035] hover:-translate-y-1
-                hover:shadow-2xl hover:shadow-lime-300/30
+                ${isDark ? 'hover:shadow-2xl hover:shadow-lime-300/30' : 'hover:shadow-lg'}
                 ${className}
             `}
             style={{
                 cursor: "pointer",
             }}
         >
-            {/* Animated colored shadow and border on hover */}
-            <div
-                className={`
-                    pointer-events-none absolute inset-0 z-0
-                    transition-all duration-500
-                    group-hover:opacity-90 group-hover:scale-105
-                    group-hover:shadow-[0_0_40px_10px_rgba(180,236,81,0.25)]
-                    group-hover:border-lime-300/60
-                `}
-                style={{
-                    background: `radial-gradient(circle at ${gradientPosition}, rgba(180,236,81,0.20) 0%, rgba(66,147,33,0.30) 40%, transparent 75%)`,
-                    opacity: 0.7,
-                    borderRadius: "inherit",
-                }}
-            />
-            {/* Extra colored shadow on hover */}
-            <div
-                className={`
-                    pointer-events-none absolute inset-0 z-10
-                    opacity-0 group-hover:opacity-100
-                    transition-opacity duration-300
-                `}
-                style={{
-                    boxShadow: "0 0 32px 0 rgba(180,236,81,0.18), 0 4px 32px 0 rgba(66,147,33,0.10)",
-                    borderRadius: "inherit",
-                }}
-            />
-            {/* Additional shadow effect on hover */}
-            <div
-                className={`
-                    pointer-events-none absolute inset-0 z-20
-                    opacity-0 group-hover:opacity-100
-                    transition-opacity duration-300
-                `}
-                style={{
-                    boxShadow: "0 8px 40px 8px rgba(180,236,81,0.18), 0 2px 24px 0 rgba(66,147,33,0.15)",
-                    borderRadius: "inherit",
-                }}
-            />
+            {isDark && (
+                <>
+                    <div
+                        className={`
+                            pointer-events-none absolute inset-0 z-0
+                            transition-all duration-500
+                            group-hover:opacity-90 group-hover:scale-105
+                            group-hover:shadow-[0_0_40px_10px_rgba(180,236,81,0.25)]
+                            group-hover:border-lime-300/60
+                        `}
+                        style={{
+                            background: `radial-gradient(circle at ${gradientPosition}, rgba(180,236,81,0.20) 0%, rgba(66,147,33,0.30) 40%, transparent 75%)`,
+                            opacity: 0.7,
+                            borderRadius: "inherit",
+                        }}
+                    />
+                    <div
+                        className={`
+                            pointer-events-none absolute inset-0 z-10
+                            opacity-0 group-hover:opacity-100
+                            transition-opacity duration-300
+                        `}
+                        style={{
+                            boxShadow: "0 0 32px 0 rgba(180,236,81,0.18), 0 4px 32px 0 rgba(66,147,33,0.10)",
+                            borderRadius: "inherit",
+                        }}
+                    />
+                    <div
+                        className={`
+                            pointer-events-none absolute inset-0 z-20
+                            opacity-0 group-hover:opacity-100
+                            transition-opacity duration-300
+                        `}
+                        style={{
+                            boxShadow: "0 8px 40px 8px rgba(180,236,81,0.18), 0 2px 24px 0 rgba(66,147,33,0.15)",
+                            borderRadius: "inherit",
+                        }}
+                    />
+                </>
+            )}
             <div className="relative z-30">
                 <h2 className="text-2xl font-bold text-white mb-2">{title}</h2>
                 <p className="text-gray-300 mb-4">{description}</p>
                 {children}
             </div>
-            {/* Keyframes for shine animation */}
             <style jsx>{`
                 @keyframes bento-shine {
                     0% {
@@ -103,9 +107,9 @@ export const BentoLayout = () => {
         <div className="w-full max-w-6xl mx-auto mt-16 px-4 py-12">
             <div className="text-center mb-12">
                 <h1 className="text-4xl md:text-5xl font-medium mb-6">
-                    <span className="text-white">Monitor and Optimize Pricing</span>
+                    <span className="dark:text-white">Monitor and Optimize Pricing</span>
                     <br />
-                    <span className="text-lime-100"> at Any Scale</span>
+                    <span className="text-lime-400 dark:text-lime-400"> at Any Scale</span>
                 </h1>
             </div>
 
@@ -154,6 +158,7 @@ export const BentoLayout = () => {
                     title="Pricing Simulations"
                     description="Run advanced pricing simulations in a risk-free sandbox to predict revenue impact and optimize strategies before going live."
                     gradientPosition="right top"
+                    className="bg-black/70"
                 >
                     <div className="bg-black/80 rounded-lg p-4 mt-4 border border-lime-500/20">
                         <div className="flex items-start">
@@ -174,6 +179,7 @@ export const BentoLayout = () => {
                     title="Automated Dynamic Pricing"
                     description="Set intelligent pricing rules based on demand, seasonality, competition, and automate price updates seamlessly through API integrations."
                     gradientPosition="left bottom"
+                    className="bg-black/70"
                 >
                     <div className="flex items-center justify-between bg-black/80 rounded-lg border border-lime-500/20 mt-4 p-3">
                         <div className="text-gray-300">Where can I access this tool?</div>
@@ -186,7 +192,7 @@ export const BentoLayout = () => {
                 <BentoCard
                     title="Easy to Integrate"
                     description="Add two lines of code to your script and automatically start tracking code, hyperparameters, metrics, and more, so you can compare and reproduce training runs."
-                    className="col-span-1 md:col-span-1 lg:col-span-2"
+                    className="col-span-1 md:col-span-1 lg:col-span-2 bg-black/70"
                     gradientPosition="right bottom"
                 >
                     <div className="mt-4">
@@ -210,6 +216,7 @@ export const BentoLayout = () => {
                     title="Build your own visualizations"
                     description="Create custom dashboards to surface the metrics that matter most for your business."
                     gradientPosition="center"
+                    className='bg-black/70'
                 >
                 </BentoCard>
             </div>

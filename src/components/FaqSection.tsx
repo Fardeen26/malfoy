@@ -63,7 +63,7 @@ const FaqSection = () => {
     }, [animatingIndex]);
 
     return (
-        <section className="w-full max-w-6xl mx-auto px-4 py-16 text-white">
+        <section className="w-full max-w-6xl mx-auto px-4 py-16 dark:text-white">
             <div className="text-center mb-12">
                 <h2 className="text-4xl md:text-5xl font-medium mb-4">
                     Frequently Asked Questions
@@ -80,8 +80,8 @@ const FaqSection = () => {
                         <div
                             key={index}
                             className={`rounded-xl overflow-hidden transition-colors duration-300 ${isOpen
-                                ? 'bg-neutral-900 border border-neutral-800'
-                                : 'bg-neutral-900/80 border border-neutral-800/50 hover:border-neutral-800'
+                                ? 'dark:bg-neutral-900 bg-black/80 border border-neutral-800'
+                                : 'dark:bg-neutral-900/80 bg-black/80 border border-neutral-800/50 hover:border-neutral-800'
                                 }`}
 
                         >

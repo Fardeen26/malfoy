@@ -4,8 +4,8 @@ const CompanyShowcase: React.FC = () => {
     return (
         <div className="w-full py-16 px-4">
             <div className="max-w-7xl mx-auto">
-                <h2 className="text-center text-4xl md:text-5xl text-white mb-14">
-                    Trusted by wide array of <span className='text-lime-100'> <br /> marketplaces</span>
+                <h2 className="text-center text-4xl md:text-5xl dark:text-white mb-14">
+                    Trusted by wide array of <span className='text-lime-400'> <br /> marketplaces</span>
                 </h2>
 
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-14">

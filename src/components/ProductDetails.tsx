@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
 
 const cardBase =
-    'relative rounded-2xl border border-lime-300/15 bg-gradient-to-br from-black/60 via-neutral-900/70 to-black/80 shadow-xl shadow-lime-900/10 backdrop-blur-md p-6 flex flex-col overflow-hidden group transition-all duration-300';
+    'relative rounded-2xl border border-lime-300/15 bg-gradient-to-br from-black/60 via-neutral-900/70 to-black/80 shadow-xl shadow-lime-900/10 backdrop-blur-md p-6 flex flex-col overflow-hidden group transition-all duration-300 bg-black/70';
 const cardHover =
     'hover:shadow-2xl hover:scale-[1.025]';
 const overlayBase =
@@ -17,7 +17,7 @@ const overlayBase =
 export default function ProductDetails() {
     return (
         <div className="w-full max-w-6xl mx-auto py-10 mt-12 px-4">
-            <h2 className='text-center text-4xl md:text-5xl font-medium mb-12'>AI Based <span className='text-lime-100'> Pricing strategy & automation </span> that provides value to your entire team</h2>
+            <h2 className='text-center text-4xl md:text-5xl font-medium mb-12'>AI Based <span className='text-lime-400'> Pricing strategy & automation </span> that provides value to your entire team</h2>
             <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -147,7 +147,7 @@ export default function ProductDetails() {
                 </div>
                 <div className="relative z-10 w-full lg:w-1/2">
                     <Image
-                        src="https://framerusercontent.com/images/03xxzX7tFg0pOAnRQNPl0JkpYQ.jpg?scale-down-to=2048"
+                        src="https://plus.unsplash.com/premium_photo-1673688152102-b24caa6e8725?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODV8fGFuYWx5dGljc3xlbnwwfHwwfHx8MA%3D%3D"
                         alt="Cluely AI Assistant Website"
                         width={600}
                         height={400}

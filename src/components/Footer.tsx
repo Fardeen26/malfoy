@@ -1,0 +1,23 @@
+import { realData } from "@/lib/realData";
+
+export default function Footer() {
+    return (
+        <footer className="w-full bg-zinc-950 border-t border-zinc-800 py-8 mt-12 text-center text-white">
+            <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="text-2xl font-bold">{realData.footer.logo_text}</div>
+                <div className="flex flex-wrap gap-6 justify-center">
+                    {realData.footer.links.map((link, idx) => (
+                        <a key={idx} href={`#${link.toLowerCase()}`} className="text-gray-300 hover:text-lime-400 transition-colors">
+                            {link}
+                        </a>
+                    ))}
+                </div>
+                <div className="text-xs text-gray-500 flex flex-col items-center md:items-end">
+                    {realData.footer.copyright.map((line, idx) => (
+                        <div key={idx}>{line}</div>
+                    ))}
+                </div>
+            </div>
+        </footer>
+    );
+}
