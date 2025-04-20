@@ -1,29 +1,16 @@
+"use client"
+
 import BentoLayout from "@/components/BentoGrid";
 import CTASection from "@/components/CtaSection";
 import FaqSection from "@/components/FaqSection";
-import PricingSection from "@/components/Pricings";
+import CompanyShowcase from "@/components/PartnersShowcase";
+import PricingCards from "@/components/Pricings";
+import PricingToggle from "@/components/PricingToggle";
 import ProductDetails from "@/components/ProductDetails";
 import { Hero } from "@/components/ui/animated-hero";
 import WhyChooseSection from "@/components/WhyChooseUs";
 import { realData } from "@/lib/realData";
-
-function IntegrationsSection() {
-  return (
-    <section className="w-full max-w-6xl mx-auto px-4 py-16 text-white">
-      <div className="text-center mb-8">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">{realData.integrations.title}</h2>
-        <p className="text-gray-400 max-w-2xl mx-auto text-center text-base mb-6">{realData.integrations.description}</p>
-        <div className="flex flex-wrap justify-center gap-4 mt-6">
-          {realData.integrations.logos.map((logo, idx) => (
-            <div key={idx} className="bg-gray-800 rounded-xl px-6 py-3 text-lg font-semibold text-white/80 border border-gray-700">
-              {logo}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+import { useState } from "react";
 
 function AdvancedFeaturesSection() {
   return (
@@ -45,16 +32,24 @@ function AdvancedFeaturesSection() {
 }
 
 export default function Home() {
+  const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly")
+
   return (
     <div className="block">
       <Hero />
       <BentoLayout />
       <WhyChooseSection />
-      <IntegrationsSection />
+      <CompanyShowcase />
       <AdvancedFeaturesSection />
       <ProductDetails />
       <FaqSection />
-      <PricingSection />
+      <div className="w-full max-w-6xl mx-auto space-y-8">
+        <div className="flex justify-center mb-8">
+          <PricingToggle value={billingCycle} onChange={setBillingCycle} />
+        </div>
+
+        <PricingCards billingCycle={billingCycle} />
+      </div>
       <div className="px-4">
         <CTASection />
       </div>

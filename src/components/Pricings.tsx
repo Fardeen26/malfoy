@@ -1,44 +1,170 @@
-import { realData } from "@/lib/realData";
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
+"use client"
 
-export default function PricingSection() {
+import { Check } from "lucide-react"
+import { Button } from "@/components/ui/button"
+
+interface PricingCardsProps {
+    billingCycle: "monthly" | "yearly"
+}
+
+export default function PricingCards({ }: PricingCardsProps) {
     return (
-        <div className="flex flex-col md:flex-row items-center justify-center gap-5 py-10 text-white px-4">
-            {realData.pricing.plans.map((plan) => (
-                <div
-                    key={plan.name}
-                    className={`w-full md:w-80 rounded-3xl p-6 flex flex-col ${plan.label === 'Popular' ? 'bg-blue-600 text-blue-50 transform md:scale-105 z-10' : 'bg-gray-800'}`}
-                >
-                    <h2 className="text-xl font-bold mb-2">{plan.name}</h2>
-                    <div className="flex items-baseline mb-4">
-                        <span className="text-5xl font-bold">{plan.price_monthly}</span>
-                        <span className="text-gray-400 ml-1">/month</span>
-                    </div>
-                    <ul className="space-y-3 mb-6 flex-grow">
-                        {plan.included.map((item, i) => (
-                            <li key={i} className="flex items-center">
-                                <div className={`w-5 h-5 rounded-full mr-2 ${plan.label === 'Popular' ? 'bg-white' : 'bg-blue-500'}`}></div>
-                                <span>{item}</span>
-                            </li>
-                        ))}
-                    </ul>
-                    <div className="flex gap-2 mb-2">
-                        {plan.ctas.map((cta, i) => (
-                            <button
-                                key={i}
-                                className={`py-3 px-6 rounded-full flex items-center justify-center ${plan.label === 'Popular' ? 'bg-white text-blue-600' : 'bg-blue-500 text-white'}`}
-                            >
-                                {cta}
-                                <ArrowRight className="ml-2 w-5 h-5" />
-                            </button>
-                        ))}
-                    </div>
-                    {plan.note && (
-                        <div className="text-xs text-gray-300 mt-2">{plan.note}</div>
-                    )}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            {/* Basic Plan */}
+            <div className="relative bg-white rounded-2xl p-8 shadow-md border border-gray-200 flex flex-col h-full transform md:scale-95 md:translate-y-4 transition-all">
+                <div className="mb-6">
+                    <p className="text-gray-600 mb-1">For individuals</p>
+                    <h3 className="text-2xl font-bold">Basic</h3>
                 </div>
-            ))}
+
+                <p className="text-gray-600 mb-8">Perfect for individuals and small projects.</p>
+
+                <div className="mb-8">
+                    <span className="text-5xl font-bold">$1999</span>
+                    <span className="text-gray-500 ml-2">/monthly</span>
+                </div>
+
+                <div className="space-y-4 mb-8">
+                    <h4 className="font-medium">What&apos;s included</h4>
+                    <ul className="space-y-3">
+                        <li className="flex items-start">
+                            <Check className="h-5 w-5 text-black mr-2 flex-shrink-0" />
+                            <span>AI based analytics features</span>
+                        </li>
+                        <li className="flex items-start">
+                            <Check className="h-5 w-5 text-black mr-2 flex-shrink-0" />
+                            <span>Up to 100,000 records</span>
+                        </li>
+                        <li className="flex items-start">
+                            <Check className="h-5 w-5 text-black mr-2 flex-shrink-0" />
+                            <span>Normal support</span>
+                        </li>
+                        <li className="flex items-start">
+                            <Check className="h-5 w-5 text-black mr-2 flex-shrink-0" />
+                            <span>Up to 3 team members</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div className="mt-auto space-y-4">
+                    <Button className="w-full bg-[#1a1a1a] hover:bg-black text-white">Get Started</Button>
+                    <div className="text-center">
+                        <a href="#" className="text-gray-600 hover:text-gray-900 text-sm">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            {/* Pro Plan - Featured */}
+            <div className="relative rounded-2xl p-8 shadow-xl border border-gray-700 flex flex-col h-full z-10 transform scale-105 transition-all overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-b from-[#4a4a4a] via-[#3c3c3c] to-[#1a1a1a] z-0"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(255,255,255,0.15),transparent_70%)] z-0"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(255,255,255,0.05),transparent_60%)] z-0"></div>
+                <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent)] opacity-75 animate-shimmer-slow z-0"></div>
+
+                <div className="absolute right-8 top-8 z-10">
+                    <span className="bg-gray-500/40 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full">
+                        Popular
+                    </span>
+                </div>
+
+                <div className="mb-6 relative z-10">
+                    <p className="text-gray-300 mb-1">For startups</p>
+                    <h3 className="text-2xl font-bold text-white">Pro</h3>
+                </div>
+
+                <p className="text-gray-300 mb-8 relative z-10">
+                    Unlock enhanced AI capabilities, priority support, and weekly updates.
+                </p>
+
+                <div className="mb-8 relative z-10">
+                    <span className="text-5xl font-bold text-white">$9999</span>
+                    <span className="text-gray-300 ml-2">/monthly</span>
+                </div>
+
+                <div className="space-y-4 mb-8 relative z-10">
+                    <h4 className="font-medium text-white">What&apos;s included</h4>
+                    <ul className="space-y-3">
+                        <li className="flex items-start text-gray-200">
+                            <div className="bg-white/10 rounded-full p-0.5 mr-2 flex-shrink-0">
+                                <Check className="h-4 w-4 text-white" />
+                            </div>
+                            <span>AI based analytics features</span>
+                        </li>
+                        <li className="flex items-start text-gray-200">
+                            <div className="bg-white/10 rounded-full p-0.5 mr-2 flex-shrink-0">
+                                <Check className="h-4 w-4 text-white" />
+                            </div>
+                            <span>Up to 1,000,000 records</span>
+                        </li>
+                        <li className="flex items-start text-gray-200">
+                            <div className="bg-white/10 rounded-full p-0.5 mr-2 flex-shrink-0">
+                                <Check className="h-4 w-4 text-white" />
+                            </div>
+                            <span>Premium support</span>
+                        </li>
+                        <li className="flex items-start text-gray-200">
+                            <div className="bg-white/10 rounded-full p-0.5 mr-2 flex-shrink-0">
+                                <Check className="h-4 w-4 text-white" />
+                            </div>
+                            <span>Up to 10 team members</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div className="mt-auto relative z-10">
+                    <Button className="w-full bg-white hover:bg-gray-100 text-black relative overflow-hidden group">
+                        <span className="relative z-10">Get Started</span>
+                        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/70 to-transparent -translate-x-full group-hover:animate-shimmer"></span>
+                    </Button>
+                </div>
+            </div>
+
+            {/* Enterprise Plan */}
+            <div className="relative bg-white rounded-2xl p-8 shadow-md border border-gray-200 flex flex-col h-full transform md:scale-95 md:translate-y-4 transition-all">
+                <div className="mb-6">
+                    <p className="text-gray-600 mb-1">For big companies</p>
+                    <h3 className="text-2xl font-bold">Enterprise</h3>
+                </div>
+
+                <p className="text-gray-600 mb-8">Access the full suite of AI features, 24/7 dedicated support.</p>
+
+                <div className="mb-8">
+                    <span className="text-5xl font-bold">Custom</span>
+                </div>
+
+                <div className="space-y-4 mb-8">
+                    <h4 className="font-medium">What&apos;s included</h4>
+                    <ul className="space-y-3">
+                        <li className="flex items-start">
+                            <Check className="h-5 w-5 text-black mr-2 flex-shrink-0" />
+                            <span>AI based analytics features</span>
+                        </li>
+                        <li className="flex items-start">
+                            <Check className="h-5 w-5 text-black mr-2 flex-shrink-0" />
+                            <span>Up to 100,000,000 records</span>
+                        </li>
+                        <li className="flex items-start">
+                            <Check className="h-5 w-5 text-black mr-2 flex-shrink-0" />
+                            <span>Dedicated support</span>
+                        </li>
+                        <li className="flex items-start">
+                            <Check className="h-5 w-5 text-black mr-2 flex-shrink-0" />
+                            <span>Up to 50 team members</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div className="mt-auto space-y-4">
+                    <Button className="w-full bg-[#1a1a1a] hover:bg-black text-white">Get Started</Button>
+                    <div className="text-center">
+                        <a href="#" className="text-gray-600 hover:text-gray-900 text-sm">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-    );
+    )
 }
