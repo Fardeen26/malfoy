@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { realData } from "@/lib/realData";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 function Hero() {
   const { theme, resolvedTheme } = useTheme();
@@ -47,29 +48,30 @@ function Hero() {
             </p>
           </div>
           <div className="flex flex-row gap-3">
-            <Button
-              className={cn(
-                "gap-4 dark:text-black rounded-full bg-black text-white relative px-8 cursor-pointer overflow-hidden shadow-2xl hover:bg-black hover:text-white dark:shadow-black border border-zinc-200 hover:shadow-2xl hover:-translate-y-1 transition-all duration-200",
-                "dark:bg-white/90 backdrop-blur-[2px]"
-              )}
-              variant="outline"
-            >
-              <span
-                aria-hidden
-                className="pointer-events-none absolute inset-0 z-10"
+            <Link href='https://calendly.com/ysingla/15min'>
+              <Button
+                className={cn(
+                  "gap-4 dark:text-black rounded-full bg-black text-white relative px-8 cursor-pointer overflow-hidden shadow-2xl hover:bg-black hover:text-white dark:shadow-black border border-zinc-200 hover:shadow-2xl hover:-translate-y-1 transition-all duration-200",
+                  "dark:bg-white/90 backdrop-blur-[2px]"
+                )}
+                variant="outline"
               >
                 <span
-                  className="block absolute -left-1/3 -top-1/3 w-2/3 h-[180%] animate-shine"
-                  style={{
-                    background: shineGradient,
-                    filter: "blur(2px)",
-                  }}
-                />
-              </span>
-              <span className="relative flex items-center z-20">
-                {realData.hero.cta} <ChevronRightSquareIcon className="w-4 h-4 ml-2" />
-              </span>
-              <style jsx global>{`
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 z-10"
+                >
+                  <span
+                    className="block absolute -left-1/3 -top-1/3 w-2/3 h-[180%] animate-shine"
+                    style={{
+                      background: shineGradient,
+                      filter: "blur(2px)",
+                    }}
+                  />
+                </span>
+                <span className="relative flex items-center z-20">
+                  {realData.hero.cta} <ChevronRightSquareIcon className="w-4 h-4 ml-2" />
+                </span>
+                <style jsx global>{`
                 @keyframes shine {
                   0% {
                     transform: translateX(-100%) rotate(12deg);
@@ -90,7 +92,8 @@ function Hero() {
                   animation: shine 2.8s cubic-bezier(0.4,0,0.2,1) infinite;
                 }
               `}</style>
-            </Button>
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

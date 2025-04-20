@@ -1,10 +1,17 @@
 'use client';
 
 import { realData } from "@/lib/realData";
+import { motion } from 'framer-motion';
 
 const WhyChooseSection = () => {
     return (
-        <section className="w-full max-w-6xl mx-auto px-4 py-16 dark:text-white">
+        <motion.section
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            className="w-full max-w-6xl mx-auto px-4 py-16 dark:text-white"
+        >
             <div className="text-center mb-8">
                 <h2 className="text-4xl md:text-5xl font-medium mb-4">
                     Why Choose <span className="text-lime-400">{realData.footer.logo_text}</span>?
@@ -39,7 +46,7 @@ const WhyChooseSection = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 };
 

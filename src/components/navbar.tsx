@@ -17,7 +17,7 @@ export default function Navbar() {
                 </div>
                 <div className="hidden md:flex items-center space-x-16">
                     {realData.navigation.map((item) => (
-                        <a key={item} href={`#${item.toLowerCase()}`} className="">
+                        <a key={item} href={`#${item.toLowerCase()}`} className='hover:scale-105 transition-all'>
                             {item}
                         </a>
                     ))}

@@ -1,8 +1,15 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const CompanyShowcase: React.FC = () => {
     return (
-        <div className="w-full py-16 px-2 sm:px-4">
+        <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            className="w-full py-16 px-2 sm:px-4"
+        >
             <div className="max-w-7xl mx-auto">
                 <h2 className="text-center text-3xl sm:text-4xl md:text-5xl dark:text-white mb-10 sm:mb-14">
                     Trusted by wide array of <span className='text-lime-400'> <br /> marketplaces</span>
@@ -48,7 +55,7 @@ const CompanyShowcase: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

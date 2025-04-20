@@ -2,10 +2,17 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { realData } from "@/lib/realData";
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function CTASection() {
     return (
-        <div className="w-full my-8 sm:my-10 relative flex justify-center px-2">
+        <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            className="w-full my-8 sm:my-10 relative flex justify-center px-2"
+        >
             {/* Gradient Glow Background */}
             <div className="absolute inset-0 z-0 rounded-2xl sm:rounded-3xl overflow-hidden pointer-events-none">
                 <div className="absolute inset-0 bg-[#11120e]" />
@@ -34,6 +41,6 @@ export default function CTASection() {
                     </Link>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }

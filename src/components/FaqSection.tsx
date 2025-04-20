@@ -3,6 +3,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { Plus, X } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface FaqItem {
     question: string;
@@ -63,7 +64,13 @@ const FaqSection = () => {
     }, [animatingIndex]);
 
     return (
-        <section className="w-full max-w-6xl mx-auto px-4 py-16 dark:text-white">
+        <motion.section
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            className="w-full max-w-6xl mx-auto px-4 py-16 dark:text-white"
+        >
             <div className="text-center mb-12">
                 <h2 className="text-4xl md:text-5xl font-medium mb-4">
                     Frequently Asked Questions
@@ -120,7 +127,7 @@ const FaqSection = () => {
                     );
                 })}
             </div>
-        </section>
+        </motion.section>
     );
 };
 

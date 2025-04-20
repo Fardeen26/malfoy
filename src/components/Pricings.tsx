@@ -2,6 +2,7 @@
 
 import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { motion } from 'framer-motion'
 
 interface PricingCardsProps {
     billingCycle: "monthly" | "yearly"
@@ -23,7 +24,13 @@ export default function PricingCards({ billingCycle }: PricingCardsProps) {
     const data = pricingData[billingCycle];
     return (
         <div className="w-full max-w-5xl mx-auto px-2 sm:px-4 md:px-0">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 relative">
+            <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, ease: 'easeOut' }}
+                className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 relative"
+            >
                 {/* Basic Plan */}
                 <div className="relative bg-white !text-black rounded-2xl p-5 xs:p-6 sm:p-7 md:p-8 shadow-md border border-gray-200 flex flex-col h-full transition-all
                     md:scale-95 md:translate-y-4
@@ -222,7 +229,7 @@ export default function PricingCards({ billingCycle }: PricingCardsProps) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </div>
     )
 }

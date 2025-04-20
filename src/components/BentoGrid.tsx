@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { ArrowUpRight, Lightbulb } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import { motion } from 'framer-motion';
 
 interface BentoCardProps {
     title: string;
@@ -104,7 +105,13 @@ export const BentoLayout = () => {
     const [tab, setTab] = useState<'skip' | 'read' | 'deep-dive'>('skip');
 
     return (
-        <div className="w-full max-w-6xl mx-auto mt-16 px-4 py-12">
+        <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            className="w-full max-w-6xl mx-auto mt-16 px-4 py-12"
+        >
             <div className="text-center mb-12">
                 <h1 className="text-4xl md:text-5xl font-medium mb-6">
                     <span className="dark:text-white">Monitor and Optimize Pricing</span>
@@ -182,7 +189,7 @@ export const BentoLayout = () => {
                     className="bg-black/70"
                 >
                     <div className="flex items-center justify-between bg-black/80 rounded-lg border border-lime-500/20 mt-4 p-3">
-                        <div className="text-gray-300">Where can I access this tool?</div>
+                        <div className="text-gray-300 text-sm">Where can I access this tool?</div>
                         <button className="bg-lime-400 text-black rounded-full p-2 cursor-pointer">
                             <ArrowUpRight size={20} />
                         </button>
@@ -220,7 +227,7 @@ export const BentoLayout = () => {
                 >
                 </BentoCard>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
