@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import Navbar from "@/components/Navbar";
 import { ThemeProvider } from 'next-themes';
 import Footer from "@/components/Footer";
+import "./globals.css";
+import Navbar from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Get Malfoy",

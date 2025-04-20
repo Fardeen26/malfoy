@@ -21,7 +21,7 @@ export default function ProductDetails() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="w-full max-w-6xl mx-auto py-8 sm:py-10 mt-8 sm:mt-12 px-2 sm:px-4"
+            className="w-full max-w-6xl mx-auto py-8 sm:py-10 mt-8 sm:mt-0 px-2 sm:px-4"
         >
             <h2 className="text-center text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-medium mb-8 sm:mb-12">
                 AI Based <span className="text-lime-400"> Pricing strategy & automation </span> that provides value to your entire team
