@@ -31,10 +31,10 @@ function Hero() {
         <div className="flex gap-8 py-12 lg:py-20 items-center justify-center flex-col">
           <div
             className={cn(
-              "group rounded-full border border-black/5 text-base dark:text-white text-black transition-all ease-in hover:cursor-pointer bg-neutral-200 dark:border-white/5 dark:bg-neutral-800",
+              "group rounded-full border border-black/5 text-base dark:text-white text-black transition-all ease-in hover:cursor-pointer bg-neutral-200 dark:border-white/5 dark:bg-neutral-800 min-w-min",
             )}
           >
-            <AnimatedShinyText className="inline-flex items-center text-sm justify-center px-6 py-1 transition ease-out text-neutral-600 hover:duration-300 dark:text-neutral-400">
+            <AnimatedShinyText className="inline-flex items-center text-sm max-sm:text-xs max-[375px]:!text-[8px] justify-center px-6 py-1 transition ease-out text-neutral-600 hover:duration-300 dark:text-neutral-400 min-w-min whitespace-nowrap">
               <span>{realData.hero.banner}</span>
               <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
             </AnimatedShinyText>

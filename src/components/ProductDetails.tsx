@@ -19,7 +19,7 @@ export default function ProductDetails() {
         <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
             className="w-full max-w-6xl mx-auto py-8 sm:py-10 mt-8 sm:mt-0 px-2 sm:px-4"
         >

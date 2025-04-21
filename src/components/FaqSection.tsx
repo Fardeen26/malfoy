@@ -8,7 +8,6 @@ import { motion } from 'framer-motion';
 interface FaqItem {
     question: string;
     answer: string;
-    defaultOpen?: boolean;
 }
 
 const faqItems: FaqItem[] = [
@@ -22,8 +21,7 @@ const faqItems: FaqItem[] = [
     },
     {
         question: "Can I test pricing strategies before going live?",
-        answer: "Yes! You can run advanced pricing simulations in a risk-free sandbox to predict revenue impact and optimize your strategies before making changes public.",
-        defaultOpen: true
+        answer: "Yes! You can run advanced pricing simulations in a risk-free sandbox to predict revenue impact and optimize your strategies before making changes public."
     },
     {
         question: "What integrations are available?",
@@ -44,7 +42,7 @@ const faqItems: FaqItem[] = [
 ];
 
 const FaqSection = () => {
-    const [openItem, setOpenItem] = useState<number | null>(2); // Default open third item
+    const [openItem, setOpenItem] = useState<number | null>(null); // No item open by default
     const [animatingIndex, setAnimatingIndex] = useState<number | null>(null);
 
     const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
